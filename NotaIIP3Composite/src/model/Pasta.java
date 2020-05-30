@@ -2,48 +2,46 @@ package model;
 
 import java.util.ArrayList;
 
-public class Pasta {
+public class Pasta implements Explorador {
 
 	private String nome;
+	ArrayList<Explorador> explorador;
 
 	public Pasta(String nome) {
 		this.nome = nome;
+		this.explorador = new ArrayList<Explorador>();
 	}
 
-	ArrayList arquivos_Subpasta = new ArrayList();
-
-	public void adicionarArquivo(Arquivo a) {
-
-		this.arquivos_Subpasta.add(a);
-
+	@Override
+	public String getNome() {
+		return this.nome;
 	}
 
-	public void adicionarPasta(Pasta past) {
+	public void addArquivoPasta(Explorador ex) {
 
-		this.arquivos_Subpasta.add(past);
+		this.explorador.add(ex);
 
 	}
 
 	public void listarArquivo() {
 
-		System.out.println("Arquivos da pasta: "+ this.nome);
+		System.out.println("\nArquivos da pasta: " + this.nome);
 		System.out.println("---------------------------------------");
-		for (int i = 0; i < arquivos_Subpasta.size(); i++) {
+		for (int i = 0; i < explorador.size(); i++) {
 
-			System.out.println(arquivos_Subpasta.get(i).toString());
+			System.out.println(explorador.get(i).toString());
 		}
 		System.out.println("---------------------------------------\n");
 	}
 
 	public void removerArquivo(int index) {
-		this.arquivos_Subpasta.remove(index);
+		this.explorador.remove(index);
 
 	}
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return "Pasta: "+ this.nome + " " + this.arquivos_Subpasta;
+		return "Pasta: " + this.nome + " " + this.explorador;
 	}
 
 }

@@ -1,6 +1,6 @@
 package model;
 
-public class Arquivo {
+public class Arquivo implements Explorador{
 
 	private String nome;
 	private int tamanho;
@@ -10,8 +10,10 @@ public class Arquivo {
 		this.tamanho = tamanho;
 	}
 
+	@Override
 	public String getNome() {
-		return nome;
+		// TODO Auto-generated method stub
+		return this.nome;
 	}
 
 	public void setNome(String nome) {
@@ -30,5 +32,6 @@ public class Arquivo {
 	public String toString() {
 		return "Arquivo = " + nome + ", de tamanho=" + tamanho + "KB ; ";
 	}
+
 
 }
